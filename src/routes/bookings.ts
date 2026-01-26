@@ -3,14 +3,30 @@ import * as bookingService from '../services/bookingService';
 
 const router = Router();
 
+function isValidDateString(dateStr: string): boolean {
+  const date = new Date(dateStr);
+  return !isNaN(date.getTime());
+}
+
+function isNonEmptyString(value: unknown): value is string {
+  return typeof value === 'string' && value.trim().length > 0;
+}
+
 // Create a new booking
 router.post('/bookings', (req: Request, res: Response) => {
   try {
     const { roomId, startTime, endTime, bookedBy } = req.body;
 
-    // Basic validation
-    if (!roomId || !startTime || !endTime || !bookedBy) {
+    // Validate required fields are non-empty strings
+    if (!isNonEmptyString(roomId) || !isNonEmptyString(startTime) ||
+        !isNonEmptyString(endTime) || !isNonEmptyString(bookedBy)) {
       res.status(400).json({ error: 'Missing required fields' });
+      return;
+    }
+
+    // Validate date formats
+    if (!isValidDateString(startTime) || !isValidDateString(endTime)) {
+      res.status(400).json({ error: 'Invalid date format' });
       return;
     }
 
