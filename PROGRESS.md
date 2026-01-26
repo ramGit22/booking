@@ -34,24 +34,24 @@
 ## Phase 2: Human Refinement
 
 ### Known Issues to Address
-- [ ] Inconsistent error handling (some paths don't send responses)
-- [ ] Missing validation for date format validity
-- [ ] No validation for empty strings
-- [ ] Hardcoded port number (3000)
-- [ ] No handling for invalid JSON body
+- [x] Inconsistent error handling (some paths don't send responses)
+- [x] Missing validation for date format validity
+- [x] No validation for empty strings
+- [x] Hardcoded port number (3000)
+- [x] No handling for invalid JSON body
 
 ### Potential Improvements
-- [ ] Error handling consistency
-- [ ] Input validation robustness
+- [x] Error handling consistency
+- [x] Input validation robustness
 - [ ] Edge cases in overlap detection
 - [ ] HTTP status codes correctness
 - [ ] Code organization and separation of concerns
 - [ ] Type safety improvements
 
 ### Commits (Finnish messages)
-- [ ] refaktorointi: Virheenkäsittely yhtenäistetty
-- [ ] korjaus: Lisätty puuttuva syötteiden validointi
-- [ ] (add more as needed)
+- [x] korjaus: Virheenkäsittely yhtenäistetty
+- [x] parannus: Portti ympäristömuuttujasta ja JSON-virheiden käsittely
+- [x] korjaus: Lisätty kattavampi syötteiden validointi
 
 ---
 
@@ -81,6 +81,18 @@ Answer these questions in Finnish:
 - [ ] Cancel non-existent booking - should return 404
 - [ ] List bookings for room with bookings - should return list
 - [ ] List bookings for room without bookings - should return empty array
+
+---
+
+## Commit History
+
+```
+1d0a45a korjaus: Lisätty kattavampi syötteiden validointi
+9e8132f parannus: Portti ympäristömuuttujasta ja JSON-virheiden käsittely
+69e5f1c korjaus: Virheenkäsittely yhtenäistetty
+be0e949 Add implementation plan and progress
+a3ea27b Alkuperäinen AI-generoitu commit
+```
 
 ---
 
