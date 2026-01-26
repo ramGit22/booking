@@ -23,9 +23,8 @@ router.post('/bookings', (req: Request, res: Response) => {
 
     res.status(201).json(booking);
   } catch (error) {
-    if (error instanceof Error) {
-      res.status(400).json({ error: error.message });
-    }
+    const message = error instanceof Error ? error.message : 'Unknown error';
+    res.status(400).json({ error: message });
   }
 });
 
@@ -37,12 +36,11 @@ router.delete('/bookings/:id', (req: Request, res: Response) => {
     bookingService.cancelBooking(id);
     res.status(204).send();
   } catch (error) {
-    if (error instanceof Error) {
-      if (error.message === 'Booking not found') {
-        res.status(404).json({ error: error.message });
-      } else {
-        res.status(400).json({ error: error.message });
-      }
+    const message = error instanceof Error ? error.message : 'Unknown error';
+    if (message === 'Booking not found') {
+      res.status(404).json({ error: message });
+    } else {
+      res.status(400).json({ error: message });
     }
   }
 });
