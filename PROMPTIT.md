@@ -7,16 +7,16 @@ This document contains the complete conversation with Claude AI during the devel
 ## User
 
 ```
-'c:/Users/karki/Downloads/rising-star-2026-the-pre-assignment.pdf' Analyze the document thoroughly
+'[PDF document]' Analyze the document thoroughly
 ```
 
 ---
 
 ## Assistant
 
-## Document Analysis: Rising Star 2026 Pre-Assignment
+## Document Analysis: Pre-Assignment
 
-This is a **recruitment pre-assignment from Vincit** for their Rising Star 2026 program. Here's the complete breakdown:
+This is a **recruitment pre-assignment**. Here's the complete breakdown:
 
 ---
 
@@ -139,7 +139,7 @@ Let me verify against all requirements and update the plan with missing items:
 | Commit #1: "Alkuperäinen AI-generoitu commit" | ✓ |
 | Phase 2 commits in Finnish | ✓ |
 | **ANALYYSI.md (Phase 3)** | Missing detail |
-| **Avoid "Rising star" in repo** | Not mentioned |
+| **Avoid "[REDACTED]" in repo** | Not mentioned |
 | **Document assumptions** | ✓ |
 
 Let me update the plan to be more complete:
@@ -162,7 +162,7 @@ The plan now covers all requirements from the PDF document:
 - [x] Commit #1: "Alkuperäinen AI-generoitu commit"
 - [x] Phase 2 commits with Finnish messages
 - [x] ANALYYSI.md with 3 required questions (in Finnish)
-- [x] Avoid "Rising star" in repo name
+- [x] Avoid "[REDACTED]" in repo name
 - [x] Don't squash commits
 - [x] Document assumptions
 
@@ -188,7 +188,7 @@ Implement the following plan:
 # Meeting Room Booking API - Implementation Plan
 
 ## Overview
-Create a TypeScript/Node.js REST API for meeting room bookings as part of the Rising Star 2026 pre-assignment.
+Create a TypeScript/Node.js REST API for meeting room bookings as part of the [REDACTED] pre-assignment.
 
 ---
 
@@ -354,7 +354,7 @@ After Phase 2 is complete, create `ANALYYSI.md` answering these questions **in F
 
 ## Important Notes
 
-- **Repository naming:** Do NOT use "Rising star" in the repository name or content
+- **Repository naming:** Do NOT use "[REDACTED]" in the repository name or content
 - **Commit history:** Never squash commits - full history is required for evaluation
 - **PROMPTIT.md content:** Must contain this entire AI conversation (prompts and responses)
 

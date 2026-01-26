@@ -1,7 +1,7 @@
 # Meeting Room Booking API - Implementation Plan
 
 ## Overview
-Create a TypeScript/Node.js REST API for meeting room bookings as part of the Rising Star 2026 pre-assignment.
+Create a TypeScript/Node.js REST API for meeting room bookings as part of the [REDACTED] pre-assignment.
 
 ---
 
@@ -167,6 +167,6 @@ After Phase 2 is complete, create `ANALYYSI.md` answering these questions **in F
 
 ## Important Notes
 
-- **Repository naming:** Do NOT use "Rising star" in the repository name or content
+- **Repository naming:** Do NOT use "[REDACTED]" in the repository name or content
 - **Commit history:** Never squash commits - full history is required for evaluation
 - **PROMPTIT.md content:** Must contain this entire AI conversation (prompts and responses)
