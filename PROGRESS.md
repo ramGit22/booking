@@ -64,15 +64,15 @@
 ## Verification Checklist
 
 ### Manual Testing
-- [ ] Server starts without errors
-- [ ] Create valid booking - should succeed (201)
-- [ ] Create overlapping booking - should fail (400)
-- [ ] Create booking in the past - should fail (400)
-- [ ] Create booking with end before start - should fail (400)
-- [ ] Cancel existing booking - should succeed (204)
-- [ ] Cancel non-existent booking - should return 404
-- [ ] List bookings for room with bookings - should return list
-- [ ] List bookings for room without bookings - should return empty array
+- [x] Server starts without errors
+- [x] Create valid booking - should succeed (201)
+- [x] Create overlapping booking - should fail (400)
+- [x] Create booking in the past - should fail (400)
+- [x] Create booking with end before start - should fail (400)
+- [x] Cancel existing booking - should succeed (204)
+- [x] Cancel non-existent booking - should return 404
+- [x] List bookings for room with bookings - should return list
+- [x] List bookings for room without bookings - should return empty array
 
 ---
 
