@@ -1,35 +1,35 @@
-# Meeting Room Booking API
+# Kokoushuoneiden varausrajapinta
 
-REST API for managing meeting room bookings.
+REST API kokoushuonevarausten hallintaan.
 
-## Setup
+## Asennus ja käyttöönotto
 
-1. Install dependencies:
+1. Asenna riippuvuudet:
 ```bash
 npm install
 ```
 
-2. Run in development mode:
+2. Käynnistä kehitystilassa:
 ```bash
 npm run dev
 ```
 
-3. Or build and run:
+3. Tai rakenna ja käynnistä:
 ```bash
 npm run build
 npm start
 ```
 
-The server runs on port 3000.
+Palvelin käynnistyy oletusportissa 3000.
 
-## API Endpoints
+## API-rajapinnat
 
-### Create a booking
+### Varauksen luonti
 ```
 POST /api/bookings
 ```
 
-Request body:
+Pyyntörunko:
 ```json
 {
   "roomId": "room-1",
@@ -39,26 +39,81 @@ Request body:
 }
 ```
 
-### Cancel a booking
+### Varauksen peruutus
 ```
 DELETE /api/bookings/:id
 ```
 
-### List bookings for a room
+### Huoneen varausten listaus
 ```
 GET /api/rooms/:roomId/bookings
 ```
 
-## Business Rules
+## Toimintalogiikka
 
-- Bookings cannot overlap for the same room
-- Bookings cannot be made in the past
-- Start time must be before end time
+- Varaukset eivät saa mennä päällekkäin samalle huoneelle
+- Varauksia ei voi tehdä menneisyyteen
+- Aloitusajan täytyy olla ennen lopetusaikaa
 
-## Assumptions
+## Oletukset
 
-- Room IDs are simple strings (e.g., "room-1", "conference-a")
-- User identification is a simple string (no authentication)
-- Time format uses ISO 8601 strings
-- No minimum or maximum booking duration limits
-- Data is stored in memory (resets on server restart)
+- Huoneet tunnistetaan merkkijonoilla (esim. "room-1", "conference-a")
+- Käyttäjätunnistus on yksinkertainen merkkijono (ei autentikointia)
+- Aikaformaatti: ISO 8601 -merkkijonot
+- Ei minimikestoa tai maksimikestoa varauksille
+- Tiedot tallennetaan muistiin (nollautuu palvelimen uudelleenkäynnistyksessä)
+
+## Testaus
+
+Katso yksityiskohtaiset testausohjeet tiedostosta [TESTING.md](TESTING.md).
+
+### Pikatesti
+
+```bash
+# Luo varaus
+curl -X POST http://localhost:3000/api/bookings \
+  -H "Content-Type: application/json" \
+  -d '{"roomId": "room-1", "startTime": "2026-01-30T10:00:00Z", "endTime": "2026-01-30T11:00:00Z", "bookedBy": "user1"}'
+
+# Listaa huoneen varaukset
+curl http://localhost:3000/api/rooms/room-1/bookings
+
+# Peruuta varaus (korvaa {id} varauksen tunnuksella)
+curl -X DELETE http://localhost:3000/api/bookings/{id}
+```
+
+## Ympäristömuuttujat
+
+- `PORT` - Palvelimen portti (oletus: 3000)
+
+Esimerkki:
+```bash
+PORT=8080 npm run dev
+```
+
+## Projektirakenne
+
+```
+booking/
+├── src/
+│   ├── index.ts              # Palvelimen käynnistys
+│   ├── models/
+│   │   └── booking.ts        # Tyyppimäärittelyt
+│   ├── routes/
+│   │   └── bookings.ts       # Reittikäsittelijät
+│   ├── services/
+│   │   └── bookingService.ts # Liiketoimintalogiikka
+│   └── store/
+│       └── inMemoryStore.ts  # Muistivarasto
+├── ANALYYSI.md               # Tekoälyanalyysi
+├── PROMPTIT.md               # AI-keskusteluhistoria
+├── TESTING.md                # Testausohjeet
+└── README.md                 # Tämä tiedosto
+```
+
+## Teknologiat
+
+- **Runtime:** Node.js
+- **Kieli:** TypeScript
+- **Framework:** Express.js
+- **Tietokanta:** Muistivarasto (Map)
